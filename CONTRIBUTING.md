@@ -23,6 +23,8 @@ source src/sh/pre-commit.sh
 
 <https://thisisadeadlink.com/deadlink>
 
+This is a change for a new test PR.
+
 See the `cfg/` directory for assorted formatter and linter configurations.
 
 ### GitHub actions
