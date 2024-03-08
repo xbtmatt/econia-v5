@@ -15,9 +15,7 @@ jobs:
       with:
         assignees: 'xbtmatt'
         content-filepath: './lychee/out.md'
-        labels:
-        - 'report'
-        - 'automated issue'
+        labels: 'report, automated issue'
         title: 'Link Checker Report'
 name: 'Link Checker'
 'on':
