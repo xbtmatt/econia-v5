@@ -23,6 +23,8 @@ source src/sh/pre-commit.sh
 
 <https://thisisadeadlink.com/deadlink>
 
+Stale exempt test PR.
+
 See the `cfg/` directory for assorted formatter and linter configurations.
 
 ### GitHub actions
