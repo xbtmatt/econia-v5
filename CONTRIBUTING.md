@@ -21,6 +21,8 @@ From the repository root directory:
 source src/sh/pre-commit.sh
 ```
 
+https://thisisadeadlink.com/deadlink
+
 See the `cfg/` directory for assorted formatter and linter configurations.
 
 ### GitHub actions
