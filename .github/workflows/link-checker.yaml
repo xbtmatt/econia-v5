@@ -34,20 +34,6 @@ jobs:
           automated issue
           link-checker
         title: 'Link Checker Report'
-    - name: 'Debug file content and conditions'
-      run: |
-        echo "${{ steps.last-issue.outputs.has-found == 'true' ||
-        env.lychee_exit_code != '0' }}"
-    - if: >-
-        steps.last-issue.outputs.has-found == 'true'
-      name: 'Should Not Run 1'
-      run: |
-        echo "This should never appear if the logic works correctly."
-    - if: >-
-        env.lychee_exit_code != '0'
-      name: 'Should Not Run 2'
-      run: |
-        echo "This should never appear if the logic works correctly."
 name: 'Link Checker'
 'on':
   schedule:
