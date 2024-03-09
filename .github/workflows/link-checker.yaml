@@ -19,7 +19,8 @@ jobs:
           link-checker
         state: 'open'
     - if: >-
-        'true'
+        ${{ steps.last-issue.outputs.has-found == 'true' }} ||
+        ${{ env.lychee_exit_code != '0' }}
       name: 'Update last updated report issue'
       uses: 'peter-evans/create-issue-from-file@v5'
       with:
@@ -35,9 +36,8 @@ jobs:
         title: 'Link Checker Report'
     - name: 'Debug file content and conditions'
       run: |
-        echo "Issue Number: ${{ steps.last-issue.outputs.issue-number }}"
-        echo "Lychee Exit Code: ${{ env.lychee_exit_code }}"
-        cat ./lychee/out.md
+        echo "${{ steps.last-issue.outputs.has-found == 'true' }}"
+        echo "${{ env.lychee_exit_code != '0' }}"
 name: 'Link Checker'
 'on':
   schedule:
