@@ -18,7 +18,7 @@ jobs:
           automated issue
           link-checker
         state: 'open'
-    - if: 'steps.last-issue.outputs.has-found == "true"'
+    - if: 'steps.last-issue.outputs.has-found == true'
       name: 'Update last updated report issue'
       uses: 'peter-evans/create-issue-from-file@v4'
       with:
