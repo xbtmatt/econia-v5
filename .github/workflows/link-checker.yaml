@@ -19,7 +19,7 @@ jobs:
           link-checker
         state: 'open'
     - if: >-
-        ${{ env.lychee_exit_code == '0' }}
+        ${{ env.lychee_exit_code == 0 }}
       name: 'Update last updated report issue'
       uses: 'peter-evans/create-issue-from-file@v4'
       with:
