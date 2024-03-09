@@ -21,8 +21,6 @@ From the repository root directory:
 source src/sh/pre-commit.sh
 ```
 
-<https://wejfhasjkdfh.com>
-
 See the `cfg/` directory for assorted formatter and linter configurations.
 
 ### GitHub actions
