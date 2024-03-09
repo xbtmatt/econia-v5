@@ -8,7 +8,7 @@ jobs:
         GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
       id: 'lychee'
       name: 'Link Checker'
-      uses: 'lycheeverse/lychee-action@v1.5.4'
+      uses: 'lycheeverse/lychee-action@v1'
     - id: 'last-issue'
       name: 'Find the last open report issue'
       uses: 'micalevisk/last-issue-action@v2'
