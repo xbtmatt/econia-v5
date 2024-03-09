@@ -36,7 +36,7 @@ jobs:
         title: 'Link Checker Report'
     - name: 'Debug file content and conditions'
       run: |
-        echo "${{ steps.last-issue.outputs.has-found == 'true' }} ||
+        echo "${{ steps.last-issue.outputs.has-found == 'true' ||
         env.lychee_exit_code != '0' }}"
 name: 'Link Checker'
 'on':
