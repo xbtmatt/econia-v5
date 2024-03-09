@@ -45,7 +45,7 @@ jobs:
       run: |
         echo "This should never appear if the logic works correctly."
     - if: >-
-        ${{ env.lychee_exit_code != '0' }}
+        ${{ env.lychee_exit_code != '0' }} ||
         false
       name: 'Should Not Run 2'
       run: |
