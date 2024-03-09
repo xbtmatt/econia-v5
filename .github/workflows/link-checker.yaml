@@ -18,9 +18,9 @@ jobs:
           automated issue
           link-checker
         state: 'open'
-    - if: |
+    - if: >-
         ${{ steps.last-issue.outputs.has-found == 'true' }} ||
-        ${{ env.lychee_exit_code != 0 }}
+        ${{ env.lychee_exit_code != '0' }}
       name: 'Update last updated report issue'
       uses: 'peter-evans/create-issue-from-file@v4'
       with:
