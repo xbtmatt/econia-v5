@@ -15,6 +15,8 @@ These keywords `SHALL` be in `monospace` for ease of identification.
 This repository uses [`pre-commit`]. If you add a new filetype, you `SHOULD` add
 a new [hook][pre-commit hook].
 
+<https://brokenlink591823.com>
+
 From the repository root directory:
 
 ```sh
