@@ -36,6 +36,12 @@ name: 'Link Checker'
 'on':
   schedule:
   - cron: '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        default: 'warning'
+        description: 'Log level'
+        required: 'false'
 permissions:
   issues: 'write'
   pull-requests: 'write'
