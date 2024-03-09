@@ -38,19 +38,18 @@ jobs:
       run: |
         echo "${{ steps.last-issue.outputs.has-found == 'true' ||
         env.lychee_exit_code != '0' }}"
-    - if: false
-      name: 'Should Not Run'
+    - if: >-
+        ${{ steps.last-issue.outputs.has-found == 'true' }} ||
+        false
+      name: 'Should Not Run 1'
       run: |
         echo "This should never appear if the logic works correctly."
     - if: >-
-        ${{ 'false' }}
-      name: 'Should Not Run'
+        ${{ env.lychee_exit_code != '0' }}
+        false
+      name: 'Should Not Run 2'
       run: |
         echo "This should never appear if the logic works correctly."
-    - if: 'false'
-      name: 'Might Not Run'
-      run: |
-        echo "This might not appear."
 name: 'Link Checker'
 'on':
   schedule:
