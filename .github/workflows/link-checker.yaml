@@ -33,6 +33,11 @@ jobs:
           automated issue
           link-checker
         title: 'Link Checker Report'
+    - name: 'Debug file content and conditions'
+      run: |
+        echo "Issue Number: ${{ steps.last-issue.outputs.issue-number }}"
+        echo "Lychee Exit Code: ${{ env.lychee_exit_code }}"
+        cat ./lychee/out.md
 name: 'Link Checker'
 'on':
   schedule:
