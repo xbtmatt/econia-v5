@@ -39,7 +39,7 @@ jobs:
         echo "${{ steps.last-issue.outputs.has-found == 'true' ||
         env.lychee_exit_code != '0' }}"
     - if: >-
-        steps.last-issue.outputs.has-found == 'true'
+        steps.last-issue.outputs.has-found == true
       name: 'Should Not Run 1'
       run: |
         echo "This should never appear if the logic works correctly."
