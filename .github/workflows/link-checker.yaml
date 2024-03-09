@@ -41,7 +41,7 @@ name: 'Link Checker'
       logLevel:
         default: 'warning'
         description: 'Log level'
-        required: 'false'
+        required: false
 permissions:
   issues: 'write'
   pull-requests: 'write'
