@@ -19,9 +19,9 @@ jobs:
           link-checker
         state: 'open'
     - if: >-
-        ${{ env.lychee_exit_code == 0 }}
+        'true'
       name: 'Update last updated report issue'
-      uses: 'peter-evans/create-issue-from-file@v4'
+      uses: 'peter-evans/create-issue-from-file@v5'
       with:
         assignees: 'xbtmatt'
         content-filepath: './lychee/out.md'
