@@ -1,3 +1,4 @@
+# cspell:words lycheeverse, micalevisk
 ---
 jobs:
   linkChecker:
@@ -16,7 +17,7 @@ jobs:
         labels: |
           report
           automated issue
-          link-checker
+          link checker
         state: 'open'
     - if: >-
         steps.last-issue.outputs.has-found == 'true' ||
@@ -32,7 +33,7 @@ jobs:
         labels: |
           report
           automated issue
-          link-checker
+          link checker
         title: 'Link Checker Report'
 name: 'Link Checker'
 'on':
