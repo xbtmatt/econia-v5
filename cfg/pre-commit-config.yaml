@@ -11,6 +11,14 @@ repos:
   repo: 'local'
 -
   hooks:
+  -
+    entry: './src/sh/gitignore-formatter.sh'
+    id: 'gitignore-formatter'
+    language: 'script'
+    name: 'Gitignore Formatter'
+  repo: 'local'
+-
+  hooks:
   - id: 'check-added-large-files'
   - id: 'check-case-conflict'
   - id: 'detect-private-key'
