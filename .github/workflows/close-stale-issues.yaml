@@ -23,6 +23,7 @@ name: 'Close stale issues and PRs'
 'on':
   schedule:
   - cron: '*/60 0 * * *' # Cron scheduler syntax.
+  workflow_dispatch: null
 permissions:
   contents: 'write'
   issues: 'write'
