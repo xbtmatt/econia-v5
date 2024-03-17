@@ -30,6 +30,7 @@ cd $POETRY_SUBDIRECTORY || exit 1
 # each with their own output status codes.
 fail=false
 echo "Running $COMMAND on $RELATIVE_PATHS"
+poetry env info
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
 if [ "$fail" = true ]; then

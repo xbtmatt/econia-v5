@@ -15,3 +15,5 @@ pre-commit --version >/dev/null 2>&1 || {
 	echo "Pre-commit is not installed. Please install pre-commit to continue."
 	exit 1
 }
+
+exit 0
