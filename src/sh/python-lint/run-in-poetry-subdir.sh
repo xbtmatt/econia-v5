@@ -25,41 +25,10 @@ done
 
 cd $POETRY_SUBDIRECTORY || exit 1
 
-# Activate the virtual environment.
-echo 'ls -la'
-ls -la
-echo 'ls -la .venv'
-ls -la .venv
-echo 'ls -la .venv/bin'
-ls -la .venv/bin
-echo 'ls -la .venv/bin/activate'
-ls -la .venv/bin/activate
-cat .venv/bin/activate
-
-echo " ------------------------------------  This is a line. ------------------------------------------------------------------------------------\n"
-. .venv/bin/activate
-echo "\n ------------------------------------  This is a line. ------------------------------------------------------------------------------------"
-
 # Then run the script passed into this script, with the relative paths.
 # This is so we can define individual pre-commit hooks for each linter,
 # each with their own output status codes.
 fail=false
-
-echo "Current working directory: $(pwd)"
-echo "Environment PATH: $PATH"
-which poetry
-poetry --version
-ls -la .
-echo "Shell Information: $SHELL"
-
-echo "Running $COMMAND on $RELATIVE_PATHS"
-poetry env info            # Shows information about the current Poetry environment.
-which autoflake            # Should show the path to autoflake within the Poetry environment.
-poetry run which autoflake # This should definitely show the path.
-poetry run which black
-
-/home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black --version
-head -n 10 /home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black
 
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
