@@ -59,6 +59,7 @@ poetry run which autoflake # This should definitely show the path.
 poetry run which black
 
 /home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black --version
+head -n 10 /home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black
 
 eval $COMMAND $RELATIVE_PATHS || fail=true
 

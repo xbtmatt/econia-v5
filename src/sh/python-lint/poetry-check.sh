@@ -7,6 +7,8 @@ poetry --version >/dev/null 2>&1 || {
 	exit 1
 }
 
+cd $POETRY_SUBDIRECTORY || exit 1
+
 poetry check -C $POETRY_SUBDIRECTORY
 
 poetry install -C $POETRY_SUBDIRECTORY
