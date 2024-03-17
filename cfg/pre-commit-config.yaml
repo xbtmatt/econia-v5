@@ -25,7 +25,9 @@ repos:
     - 'shell'
   -
     entry: |
-      bash -c cd src/python/hooks && poetry run python -m file-name-conventions
+      bash -c cd src/python/hooks &&
+      poetry run python -m file-name-conventions &&
+      poetry --version
     id: 'file-name-conventions'
     language: 'system'
     name: 'ensure file name conventions'
