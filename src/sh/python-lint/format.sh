@@ -1,7 +1,11 @@
 #!/bin/sh
 # cspell:words realpath, autoflake, isort, mypy
 
-source ./poetry-check.sh
+POETRY_SUBDIRECTORY=./src/python/hooks
+
+cd $POETRY_SUBDIRECTORY || exit 1
+
+poetry install -C $POETRY_SUBDIRECTORY
 
 RELATIVE_PATHS=""
 

@@ -28,15 +28,6 @@ repos:
     - 'python'
   -
     entry: |
-      poetry run autoflake -c --remove-all-unused-imports
-      --remove-unused-variables --ignore-init-module-import
-    id: 'autoflake2'
-    language: 'system'
-    name: 'autoflake2'
-    types:
-    - 'python'
-  -
-    entry: |
       './src/sh/python-lint/run-in-poetry-subdir.sh'
       'poetry run autoflake -c --remove-all-unused-imports
       --remove-unused-variables --ignore-init-module-imports'

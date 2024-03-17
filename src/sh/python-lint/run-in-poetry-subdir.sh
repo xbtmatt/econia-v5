@@ -33,7 +33,8 @@ fail=false
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
 if [ "$fail" = true ]; then
-	echo '\n'$ERROR_MESSAGE
+	echo ''
+	echo $ERROR_MESSAGE
 	exit 1
 fi
 
