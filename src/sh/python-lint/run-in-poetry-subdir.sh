@@ -2,8 +2,13 @@
 # cspell:words realpath, autoflake, venv
 
 # Activate the virtual environment.
+echo 'ls -la'
+ls -la
+echo 'ls -la .venv'
 ls -la .venv
+echo 'ls -la .venv/bin'
 ls -la .venv/bin
+echo 'ls -la .venv/bin/activate'
 ls -la .venv/bin/activate
 source .venv/bin/activate
 
