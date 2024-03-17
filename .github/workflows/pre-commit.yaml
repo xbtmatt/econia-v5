@@ -41,28 +41,6 @@ jobs:
       run: |
         cd ./src/python/hooks
         poetry install --no-interaction
-    - id: 'guarantee-run-black'
-      name: 'Install Dependencies and Activate Environment'
-      run: |
-        cd ./src/python/hooks
-        poetry env info
-        poetry run which black
-        poetry run python --version
-        poetry run which python
-        head -n 1 .venv/bin/black
-        ./.venv/bin/black --version
-    - id: 'activate-virtual'
-      name: 'Activate virtual environment and run checks'
-      run: |
-        cd src/python/hooks &&
-        . .venv/bin/activate &&
-        black --version
-      shell: 'bash'  # Ensures bash is used for the script
-    - id: 'run-black'
-      name: 'Run Black'
-      run: |
-        cd src/python/hooks &&
-        .venv/bin/black --version
     - uses: 'pre-commit/action@v3.0.0'
       with:
         extra_args: '--all-files --config cfg/pre-commit-config.yaml --verbose'
