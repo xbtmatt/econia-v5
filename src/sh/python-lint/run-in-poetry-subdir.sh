@@ -2,6 +2,9 @@
 # cspell:words realpath, autoflake, venv
 
 # Activate the virtual environment.
+ls -la .venv
+ls -la .venv/bin
+ls -la .venv/bin/activate
 source .venv/bin/activate
 
 # Capture the first argument, which is the command we're wrapping for
