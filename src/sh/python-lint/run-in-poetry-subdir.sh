@@ -35,7 +35,10 @@ ls -la .venv/bin
 echo 'ls -la .venv/bin/activate'
 ls -la .venv/bin/activate
 cat .venv/bin/activate
+
+echo " ------------------------------------  This is a line. ------------------------------------------------------------------------------------\n"
 . .venv/bin/activate
+echo "\n ------------------------------------  This is a line. ------------------------------------------------------------------------------------"
 
 # Then run the script passed into this script, with the relative paths.
 # This is so we can define individual pre-commit hooks for each linter,
