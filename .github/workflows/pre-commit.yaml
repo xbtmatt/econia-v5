@@ -27,8 +27,8 @@ jobs:
       uses: 'actions/cache/restore@v3'
       with:
         key: |
-          pydeps-${{ hashFiles('./src/python/hooks') }}
-        path: './src/python/hooks'
+          pydeps-${{ hashFiles('./src/python/hooks/poetry.lock') }}
+        path: './src/python/hooks/.venv'
     - if: |
         steps.restore-deps.outputs.cache-hit != 'true'
       name: 'Install Dependencies'
@@ -44,8 +44,8 @@ jobs:
       uses: 'actions/cache/save@v3'
       with:
         key: |
-          pydeps-${{ hashFiles('./src/python/hooks') }}
-        path: './src/python/hooks'
+          pydeps-${{ hashFiles('./src/python/hooks/poetry.lock') }}
+        path: './src/python/hooks/.venv'
     - uses: 'pre-commit/action@v3.0.0'
       with:
         extra_args: '--all-files --config cfg/pre-commit-config.yaml --verbose'
