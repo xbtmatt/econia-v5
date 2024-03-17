@@ -1,5 +1,5 @@
 #!/bin/sh
-# cspell:words realpath
+# cspell:words realpath, autoflake
 
 # Capture the first argument, which is the command we're wrapping for
 # the pre-commit hook.
@@ -29,8 +29,12 @@ cd $POETRY_SUBDIRECTORY || exit 1
 # This is so we can define individual pre-commit hooks for each linter,
 # each with their own output status codes.
 fail=false
+
 echo "Running $COMMAND on $RELATIVE_PATHS"
-poetry env info
+poetry env info            # Shows information about the current Poetry environment.
+which autoflake            # Should show the path to autoflake within the Poetry environment.
+poetry run which autoflake # This should definitely show the path.
+
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
 if [ "$fail" = true ]; then
