@@ -34,13 +34,16 @@ echo "Current working directory: $(pwd)"
 echo "Environment PATH: $PATH"
 which poetry
 poetry --version
-ls -la ./src/python/hooks/
+ls -la .
 echo "Shell Information: $SHELL"
 
 echo "Running $COMMAND on $RELATIVE_PATHS"
 poetry env info            # Shows information about the current Poetry environment.
 which autoflake            # Should show the path to autoflake within the Poetry environment.
 poetry run which autoflake # This should definitely show the path.
+poetry run which black
+
+poetry run black --version
 
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
