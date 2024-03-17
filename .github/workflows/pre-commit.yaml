@@ -28,8 +28,8 @@ jobs:
       uses: 'actions/cache@v3'
       with:
         key: |
-          pydeps-${{ hashFiles('poetry.lock') }}
-        path: './src/python/hooks/.venv'
+          pydeps-${{ hashFiles('./src/python/hooks/poetry.lock') }}
+        path: './src/python/hooks/'
     - if: |
         steps.cache-deps.outputs.cache-hit != 'true'
       name: 'Install Dependencies'
