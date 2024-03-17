@@ -30,13 +30,6 @@ jobs:
         key: |
           pydeps-${{ hashFiles('./src/python/hooks/poetry.lock') }}
         path: '.venv'
-    - id: 'activate-virtual'
-      name: 'Activate virtual environment and run checks'
-      run: |
-        cd src/python/hooks &&
-        . .venv/bin/activate &&
-        black --version
-      shell: 'bash'  # Ensures bash is used for the script
     - name: 'Debug environment'
       run: |
         echo "Current working directory: $(pwd)"
@@ -52,6 +45,13 @@ jobs:
     - name: 'Install Poetry Project'
       run: |
         poetry install --no-interaction -C ./src/python/hooks
+    - id: 'activate-virtual'
+      name: 'Activate virtual environment and run checks'
+      run: |
+        cd src/python/hooks &&
+        . .venv/bin/activate &&
+        black --version
+      shell: 'bash'  # Ensures bash is used for the script
     - uses: 'pre-commit/action@v3.0.0'
       with:
         extra_args: '--all-files --config cfg/pre-commit-config.yaml --verbose'
