@@ -16,10 +16,13 @@ CASE_REGEXES = {
 
 
 def load_config():
-    config_path = Path("cfg/file-name-conventions.yaml")
+    config_path = Path("../../../cfg/file-name-conventions.yaml")
     if config_path.exists():
         with open(config_path, "r") as file:
             return yaml.safe_load(file)
+    else:
+        print(f"Error: {config_path} not found.")
+        sys.exit(1)
     return {}
 
 
@@ -28,7 +31,6 @@ def main():
     default_case = config.get("default", "snake_case")
     filetypes = config.get("filetypes", {})
     ignore_files = set(config.get("ignore_files", {}))
-    print(sys.argv[1:])
 
     # Validate the user supplied naming conventions against known conventions.
     user_supplied_cases = set(filetypes.values()).union({default_case})
@@ -55,15 +57,16 @@ def main():
             print(f"Skipping {file_path} due to exception.")
             continue
 
-        print(f"Checking {file_path} for {case} naming convention")
-
         # Check the file name as a Path object against the regex pattern.
-        if not re.match(regex, filename):
+        if re.match(regex, filename):
+            print(f"{file_path} adheres to {case} naming convention")
+        else:
             print(f"Error: {file_path} is not {case}.")
             invalid_file_names = True
 
     if invalid_file_names:
         sys.exit(1)
+    print("\nAll file names adhere to the naming conventions!")
     sys.exit(0)
 
 
