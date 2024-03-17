@@ -4,20 +4,6 @@
 repos:
 -
   hooks:
-  - args:
-    - '-C'
-    - './src/python/hooks'
-    id: 'poetry-check'
-    name: 'ci poetry check'
-  - args:
-    - '-C'
-    - './src/python/hooks'
-    id: 'poetry-install'
-    name: 'ci poetry install'
-  repo: 'https://github.com/python-poetry/poetry'
-  rev: '1.8.0'
--
-  hooks:
   -
     entry: './src/sh/ensure-shebang.sh'
     id: 'ensure-shebang'
