@@ -1,7 +1,7 @@
 # cspell:words snok, virtualenvs, pydeps, venv, Pylint, pylint
 ---
 env:
-  POETRY_VERSION: '1.8.2'
+  POETRY_VERSION: '1.8.1'
   PYTHON_VERSION: '3.9'
 jobs:
   pre-commit:
@@ -38,9 +38,13 @@ jobs:
         poetry --version || echo "Poetry not installed"
     - if: |
         steps.cache-deps.outputs.cache-hit != 'true'
-      name: 'Install Poetry Project'
+      name: 'Install Dependencies'
+      # `--no-root` to install all dependencies but not the project itself.
       run: |
-        poetry install --no-interaction -C src/python/hooks
+        poetry install --no-interaction --no-root -C ./src/python/hooks
+    - name: 'Install Poetry Project'
+      run: |
+        poetry install --no-interaction -C ./src/python/hooks
     - uses: 'pre-commit/action@v3.0.0'
       with:
         extra_args: '--all-files --config cfg/pre-commit-config.yaml --verbose'
