@@ -1,5 +1,8 @@
 #!/bin/sh
-# cspell:words realpath, autoflake
+# cspell:words realpath, autoflake, venv
+
+# Activate the virtual environment.
+source .venv/bin/activate
 
 # Capture the first argument, which is the command we're wrapping for
 # the pre-commit hook.
@@ -42,6 +45,8 @@ poetry env info            # Shows information about the current Poetry environm
 which autoflake            # Should show the path to autoflake within the Poetry environment.
 poetry run which autoflake # This should definitely show the path.
 poetry run which black
+
+ls -l /home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black
 
 poetry run black --version
 
