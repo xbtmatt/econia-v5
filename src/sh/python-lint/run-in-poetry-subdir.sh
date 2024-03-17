@@ -29,6 +29,7 @@ cd $POETRY_SUBDIRECTORY || exit 1
 # This is so we can define individual pre-commit hooks for each linter,
 # each with their own output status codes.
 fail=false
+echo "Running $COMMAND on $RELATIVE_PATHS"
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
 if [ "$fail" = true ]; then
