@@ -45,6 +45,11 @@ jobs:
     - name: 'Install Poetry Project'
       run: |
         poetry install --no-interaction -C ./src/python/hooks
+    - id: 'run-black'
+      name: 'Run Black'
+      run: |
+        cd src/python/hooks &&
+        .venv/bin/black --version
     - id: 'activate-virtual'
       name: 'Activate virtual environment and run checks'
       run: |
