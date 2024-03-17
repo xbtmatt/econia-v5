@@ -23,7 +23,7 @@ jobs:
         version: '${{ env.POETRY_VERSION }}'
         virtualenvs-create: true
         virtualenvs-in-project: true
-    - id: 'restore-cache'
+    - id: 'restore-deps'
       uses: 'actions/cache/restore@v3'
       with:
         key: |
@@ -32,15 +32,10 @@ jobs:
     - if: |
         steps.restore-deps.outputs.cache-hit != 'true'
       name: 'Install Dependencies'
-      # `--no-root` to install all dependencies but not the project itself.
       run: |
         cd ./src/python/hooks
         poetry install --no-interaction --no-root
-    - name: 'Install Poetry Project'
-      run: |
-        cd ./src/python/hooks
-        poetry install --no-interaction
-    - id: 'save-cache'
+    - id: 'save-deps'
       uses: 'actions/cache/save@v3'
       with:
         key: |
