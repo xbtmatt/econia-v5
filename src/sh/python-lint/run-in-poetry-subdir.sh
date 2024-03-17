@@ -34,6 +34,7 @@ echo 'ls -la .venv/bin'
 ls -la .venv/bin
 echo 'ls -la .venv/bin/activate'
 ls -la .venv/bin/activate
+cat .venv/bin/activate
 source .venv/bin/activate
 
 # Then run the script passed into this script, with the relative paths.
@@ -54,9 +55,7 @@ which autoflake            # Should show the path to autoflake within the Poetry
 poetry run which autoflake # This should definitely show the path.
 poetry run which black
 
-ls -l /home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black
-
-poetry run black --version
+/home/runner/work/econia-v5/econia-v5/src/python/hooks/.venv/bin/black --version
 
 eval $COMMAND $RELATIVE_PATHS || fail=true
 
