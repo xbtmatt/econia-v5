@@ -45,11 +45,6 @@ jobs:
     - name: 'Install Poetry Project'
       run: |
         poetry install --no-interaction -C ./src/python/hooks
-    - id: 'run-black'
-      name: 'Run Black'
-      run: |
-        cd src/python/hooks &&
-        .venv/bin/black --version
     - id: 'activate-virtual'
       name: 'Activate virtual environment and run checks'
       run: |
@@ -65,6 +60,11 @@ jobs:
         echo "Current working directory: $(pwd)"
         echo "Environment PATH: $PATH"
         poetry run which black
+    - id: 'run-black'
+      name: 'Run Black'
+      run: |
+        cd src/python/hooks &&
+        .venv/bin/black --version
     - uses: 'pre-commit/action@v3.0.0'
       with:
         extra_args: '--all-files --config cfg/pre-commit-config.yaml --verbose'
