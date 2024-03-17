@@ -1,7 +1,7 @@
 # cspell:words snok, virtualenvs, pydeps, venv, Pylint, pylint
 ---
 env:
-  POETRY_VERSION: '1.8.1'
+  POETRY_VERSION: '1.8.2'
   PYTHON_VERSION: '3.9'
 jobs:
   pre-commit:
