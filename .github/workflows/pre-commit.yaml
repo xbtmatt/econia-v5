@@ -49,6 +49,7 @@ jobs:
       name: 'Install Dependencies and Activate Environment'
       run: |
         cd ./src/python/hooks
+        rm -rf .venv
         poetry install --no-interaction --no-root
         echo "Current working directory: $(pwd)"
         echo "Environment PATH: $PATH"
