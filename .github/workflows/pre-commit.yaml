@@ -52,7 +52,11 @@ jobs:
         poetry install --no-interaction --no-root
         echo "Current working directory: $(pwd)"
         echo "Environment PATH: $PATH"
+        poetry env info
         poetry run which black
+        poetry run python --version
+        poetry run which python
+        head -n 1 .venv/bin/black
         ./.venv/bin/black --version
     - id: 'activate-virtual'
       name: 'Activate virtual environment and run checks'
