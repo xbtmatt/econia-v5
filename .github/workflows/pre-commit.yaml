@@ -53,7 +53,7 @@ jobs:
         echo "Current working directory: $(pwd)"
         echo "Environment PATH: $PATH"
         poetry run which black
-        poetry run black --version
+        ./.venv/bin/black --version
     - id: 'activate-virtual'
       name: 'Activate virtual environment and run checks'
       run: |
