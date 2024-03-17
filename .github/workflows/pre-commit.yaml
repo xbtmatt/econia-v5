@@ -32,13 +32,9 @@ jobs:
         path: '.venv'
     - if: |
         steps.cache-deps.outputs.cache-hit != 'true'
-      name: 'Install Dependencies'
-      # `--no-root` to install all dependencies but not the project itself.
+      name: 'Install Poetry Project'
       run: |
-        poetry install --no-interaction --no-root
-    - name: 'Install Poetry Project'
-      run: |
-        poetry install --no-interaction
+        poetry install --no-interaction -C src/python/hooks
     - uses: 'pre-commit/action@v3.0.0'
       with:
         extra_args: '--all-files --config cfg/pre-commit-config.yaml --verbose'
