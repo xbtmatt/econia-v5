@@ -31,7 +31,7 @@ repos:
       poetry run autoflake -c --remove-all-unused-imports
       --remove-unused-variables --ignore-init-module-import
     id: 'autoflake2'
-    language: 'script'
+    language: 'system'
     name: 'autoflake2'
     types:
     - 'python'
