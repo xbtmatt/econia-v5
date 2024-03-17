@@ -30,6 +30,12 @@ jobs:
         key: |
           pydeps-${{ hashFiles('./src/python/hooks/poetry.lock') }}
         path: '.venv'
+    - name: 'Debug environment'
+      run: |
+        echo "Current working directory: $(pwd)"
+        echo "Environment PATH: $PATH"
+        which poetry || echo "Poetry not found"
+        poetry --version || echo "Poetry not installed"
     - if: |
         steps.cache-deps.outputs.cache-hit != 'true'
       name: 'Install Poetry Project'

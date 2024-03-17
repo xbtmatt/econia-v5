@@ -30,6 +30,13 @@ cd $POETRY_SUBDIRECTORY || exit 1
 # each with their own output status codes.
 fail=false
 
+echo "Current working directory: $(pwd)"
+echo "Environment PATH: $PATH"
+which poetry
+poetry --version
+ls -la ./src/python/hooks/
+echo "Shell Information: $SHELL"
+
 echo "Running $COMMAND on $RELATIVE_PATHS"
 poetry env info            # Shows information about the current Poetry environment.
 which autoflake            # Should show the path to autoflake within the Poetry environment.
