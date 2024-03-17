@@ -1,17 +1,6 @@
 #!/bin/sh
 # cspell:words realpath, autoflake, venv
 
-# Activate the virtual environment.
-echo 'ls -la'
-ls -la
-echo 'ls -la .venv'
-ls -la .venv
-echo 'ls -la .venv/bin'
-ls -la .venv/bin
-echo 'ls -la .venv/bin/activate'
-ls -la .venv/bin/activate
-source .venv/bin/activate
-
 # Capture the first argument, which is the command we're wrapping for
 # the pre-commit hook.
 COMMAND=$1
@@ -35,6 +24,17 @@ for path in "$@"; do
 done
 
 cd $POETRY_SUBDIRECTORY || exit 1
+
+# Activate the virtual environment.
+echo 'ls -la'
+ls -la
+echo 'ls -la .venv'
+ls -la .venv
+echo 'ls -la .venv/bin'
+ls -la .venv/bin
+echo 'ls -la .venv/bin/activate'
+ls -la .venv/bin/activate
+source .venv/bin/activate
 
 # Then run the script passed into this script, with the relative paths.
 # This is so we can define individual pre-commit hooks for each linter,
