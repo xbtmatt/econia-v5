@@ -45,13 +45,6 @@ jobs:
     - name: 'Install Poetry Project'
       run: |
         poetry install --no-interaction -C ./src/python/hooks
-    - id: 'activate-virtual'
-      name: 'Activate virtual environment and run checks'
-      run: |
-        cd src/python/hooks &&
-        . .venv/bin/activate &&
-        black --version
-      shell: 'bash'  # Ensures bash is used for the script
     - id: 'guarantee-run-black'
       name: 'Install Dependencies and Activate Environment'
       run: |
@@ -60,6 +53,13 @@ jobs:
         echo "Current working directory: $(pwd)"
         echo "Environment PATH: $PATH"
         poetry run which black
+    - id: 'activate-virtual'
+      name: 'Activate virtual environment and run checks'
+      run: |
+        cd src/python/hooks &&
+        . .venv/bin/activate &&
+        black --version
+      shell: 'bash'  # Ensures bash is used for the script
     - id: 'run-black'
       name: 'Run Black'
       run: |
