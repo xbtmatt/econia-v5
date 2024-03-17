@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # cspell:words realpath, autoflake, venv
 
 # Capture the first argument, which is the command we're wrapping for
