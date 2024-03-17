@@ -23,7 +23,6 @@ jobs:
         version: '${{ env.POETRY_VERSION }}'
         virtualenvs-create: true
         virtualenvs-in-project: true
-        virtualenvs-path: '.venv'
     - id: 'cache-deps'
       name: 'Cache Dependencies'
       uses: 'actions/cache@v3'
@@ -31,21 +30,27 @@ jobs:
         key: |
           pydeps-${{ hashFiles('./src/python/hooks/poetry.lock') }}
         path: './src/python/hooks/.venv'
-    - name: 'Debug environment'
-      run: |
-        echo "Current working directory: $(pwd)"
-        echo "Environment PATH: $PATH"
-        which poetry || echo "Poetry not found"
-        poetry --version || echo "Poetry not installed"
     - if: |
         steps.cache-deps.outputs.cache-hit != 'true'
       name: 'Install Dependencies'
       # `--no-root` to install all dependencies but not the project itself.
       run: |
-        poetry install --no-interaction --no-root -C ./src/python/hooks
+        cd ./src/python/hooks
+        poetry install --no-interaction --no-root
     - name: 'Install Poetry Project'
       run: |
-        poetry install --no-interaction -C ./src/python/hooks
+        cd ./src/python/hooks
+        poetry install --no-interaction
+    - id: 'guarantee-run-black'
+      name: 'Install Dependencies and Activate Environment'
+      run: |
+        cd ./src/python/hooks
+        poetry env info
+        poetry run which black
+        poetry run python --version
+        poetry run which python
+        head -n 1 .venv/bin/black
+        ./.venv/bin/black --version
     - id: 'activate-virtual'
       name: 'Activate virtual environment and run checks'
       run: |
