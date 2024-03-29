@@ -1,4 +1,5 @@
 #!/bin/sh
+# cspell:words CODESPACES, CODESPACE_NAME
 
 POETRY_SUBDIRECTORY=./src/python/hooks
 
@@ -6,6 +7,13 @@ poetry --version >/dev/null 2>&1 || {
 	echo "Poetry is not installed. Please install poetry to continue."
 	exit 1
 }
+
+echo $CODESPACE_NAME
+echo $CODESPACE_NAME
+echo $CODESPACE_NAME
+echo $CODESPACES
+echo $CODESPACES
+echo $CODESPACES
 
 cd $POETRY_SUBDIRECTORY || exit 1
 
