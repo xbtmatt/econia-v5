@@ -14,6 +14,8 @@ echo $CODESPACE_NAME
 echo $CODESPACES
 echo $CODESPACES
 echo $CODESPACES
+echo "Hello world"
+exit 1
 
 cd $POETRY_SUBDIRECTORY || exit 1
 
