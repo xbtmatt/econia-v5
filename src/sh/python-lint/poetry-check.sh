@@ -15,6 +15,8 @@ echo $CODESPACES
 echo $CODESPACES
 echo $CODESPACES
 echo "Hello world"
+echo $GITHUB_ACTIONS
+python -c "import os; print(os.getenv('GITHUB_ACTIONS'))"
 exit 1
 
 cd $POETRY_SUBDIRECTORY || exit 1
