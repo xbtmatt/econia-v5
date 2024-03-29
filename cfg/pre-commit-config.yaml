@@ -16,6 +16,7 @@ repos:
     id: 'local-poetry-check'
     language: 'script'
     name: 'local poetry check'
+    pass_filenames: false
   -
     entry: |
       './src/sh/python-lint/run-in-poetry-subdir.sh'
