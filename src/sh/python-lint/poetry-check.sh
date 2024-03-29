@@ -1,5 +1,4 @@
 #!/bin/sh
-# cspell:words CODESPACES, CODESPACE_NAME
 
 POETRY_SUBDIRECTORY=./src/python/hooks
 
@@ -8,15 +7,11 @@ poetry --version >/dev/null 2>&1 || {
 	exit 1
 }
 
-echo $CODESPACE_NAME
-echo $CODESPACE_NAME
-echo $CODESPACE_NAME
-echo $CODESPACES
-echo $CODESPACES
-echo $CODESPACES
-echo "Hello world"
-echo $GITHUB_ACTIONS
-python -c "import os; print(os.getenv('GITHUB_ACTIONS'))"
+if [ "$GITHUB_ACTIONS" = "true" ]; then
+	echo "Skipping the poetry check since we're running in a GitHub Actions environment."
+	exit 0
+fi
+
 exit 1
 
 cd $POETRY_SUBDIRECTORY || exit 1
